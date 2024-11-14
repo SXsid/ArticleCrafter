@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-purple': 'rgba(190, 44, 206, 0.89)',
+      },
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'], 
+      },
+    },
   },
   plugins: [],
 }

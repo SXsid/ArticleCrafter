@@ -4,11 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
 import { store } from '../Store/store.js'
+import BackgroundLayout from './components/rootBackground/RootBackground.jsx'
 
 createRoot(document.getElementById('root')).render(
+  
   <StrictMode>
     <Provider store={store}>
+      <BackgroundLayout>
       <App />
+      </BackgroundLayout>
     </Provider>
   </StrictMode>,
 )

@@ -5,12 +5,17 @@ import { useEffect } from 'react'
 import { authService } from './Appwrite/auth'
 import { useDispatch } from 'react-redux'
 import {loggIn,loggOut} from "./Features/authSlice"
-import ArticleSkeleton from './components/Skeletons/articleSkeleton'
+// import ArticleSkeleton from './components/Skeletons/articleSkeleton'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import RouteProtect from './components/ProectionComp/RouteProtect'
+import Card from './components/Card/Card'
+import {Dashbord} from "./pages/index"
 
 function App() {
   const [loading,setLoading]=useState(true)
   const dispatch = useDispatch()
-  //we have user?
+  
+  //we have user when app will load ?
   useEffect(()=>{
     const CheckUser=async()=>{
       try{
@@ -21,7 +26,7 @@ function App() {
           throw new Error
         }
       }catch(e){
-        console.log(e);
+        // console.log(e);
         
         dispatch(loggOut())
       }
@@ -29,12 +34,23 @@ function App() {
     }
     CheckUser()
   },[])
+  const routes= createBrowserRouter([
+    {
+      path:"/",
+      element:<Dashbord/>
+    },
+    {
+      path:"/signin",
+      element:<div><Card/></div>
+    }
+  ])
 
   return (
-    <>
-      {loading &&<ArticleSkeleton/>}
-      {!loading &&<div>hello ji </div>}
-    </>
+   
+      <RouterProvider router={routes}>
+
+    </RouterProvider>
+    
   )
 }
 
