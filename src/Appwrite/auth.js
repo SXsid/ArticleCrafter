@@ -42,8 +42,13 @@ export class AuthService{
     }
     async GetUser(){
         
-        const User= await this.account.get()
-        return User
+        try{
+            const User= await this.account.get()
+            return User
+        }catch(e){
+            throw e
+        }
+        
     }
 }
 export const authService = new AuthService()

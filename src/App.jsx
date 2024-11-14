@@ -1,14 +1,39 @@
+
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
+import { useEffect } from 'react'
+import { authService } from './Appwrite/auth'
+import { useDispatch } from 'react-redux'
+import {loggIn,loggOut} from "./Features/authSlice"
+import ArticleSkeleton from './components/Skeletons/articleSkeleton'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading,setLoading]=useState(true)
+  const dispatch = useDispatch()
+  //we have user?
+  useEffect(()=>{
+    const CheckUser=async()=>{
+      try{
+        const User= await authService.GetUser()
+        if(User){
+          dispatch(loggIn({UserId:User}))
+        }else{
+          throw new Error
+        }
+      }catch(e){
+        console.log(e);
+        
+        dispatch(loggOut())
+      }
+      setLoading(false)
+    }
+    CheckUser()
+  },[])
 
   return (
     <>
-      {JSON.stringify(import.meta.env.VITE_APPWRITE_URL)}
+      {loading &&<ArticleSkeleton/>}
+      {!loading &&<div>hello ji </div>}
     </>
   )
 }
