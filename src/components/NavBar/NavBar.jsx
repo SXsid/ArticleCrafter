@@ -5,7 +5,7 @@ import Hamburger from '../Hamburger/Hamburger';
 import Logo from '../Logo/Logo';
 function NavBar() {
     const path = useLocation()
-    console.log(path);
+    // console.log(path);
     
     const NavItems=[
         {

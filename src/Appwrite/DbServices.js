@@ -10,14 +10,15 @@ export class DbService{
         this.client.setEndpoint(Config.appwriteUrl).setProject(Config.appWriteProjectId)
         this.database = new Databases(this.client)
     }
-    async CreatePost({userId,title,content,date,thumbnail}){
+    async CreatePost({userId,userName,title,content,date,thumbnail}){
         try{
             const post = await this.database.createDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ID.unique(),{
                 userId,
                 title,
                 content,
                 date,
-                thumbnail
+                thumbnail,
+                userName
             })
             return post
         }catch(e){

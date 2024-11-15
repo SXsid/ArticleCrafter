@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         'custom-purple': 'rgba(190, 44, 206, 0.89)',
+        'custom-white':'rgba(255,255,255,0.38)'
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'], 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
+import AuthButton from '../NavBar/AuthButton';
 
 function Hamburger({ navitem }) {
   const [currentStatus, setStatus] = useState(false);
@@ -31,6 +32,7 @@ function Hamburger({ navitem }) {
             {item.name}
           </Link>
         ))}
+        <AuthButton/>
       </div>
     </div>
   );

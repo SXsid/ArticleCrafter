@@ -30,7 +30,9 @@ export class AuthService{
             const logValue= await this.account.createEmailPasswordSession(email,password)
             return logValue
         }catch(e){
-            throw e
+            
+           
+                throw e
         }
     }
     async LogOut(){

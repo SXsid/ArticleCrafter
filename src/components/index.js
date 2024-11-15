@@ -3,10 +3,18 @@ import AuthButton from "./NavBar/AuthButton";
 import RouteProtect from "./ProectionComp/RouteProtect";
 import NavBar from "./NavBar/NavBar";
 import ErrorComp from "./ErrorComponenet/ErrorComp"
+import CustomInput from "./Input.jsx/CustomInput"
+import Button from "./Button/Button"
+import Login from "./Login/Login"
 export{
     Card,
     AuthButton,
     RouteProtect,
     NavBar,
-    ErrorComp
+    ErrorComp,
+    CustomInput,
+    Button,
+    Login
+    
+
 }

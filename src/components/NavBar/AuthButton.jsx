@@ -20,7 +20,7 @@ function AuthButton() {
             dispatch(loggOut())
             return
         }else{
-            navigate("/signup")
+            navigate("/signin")
         }
       }}>{isloggedIn?"LogOut":"LogIn"}</button>
     </div>
