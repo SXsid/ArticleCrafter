@@ -11,7 +11,7 @@ function AuthButton() {
     const navigate = useNavigate()
     
   return (
-    <div>
+    <div className='hidden lg:block'>
       <button  
       className='bg-[#0b0a0a94] z-10 shadow-sm border-custom-purple border w-28 h-14 rounded-full font-bold hover:scale-105 translate-x-1 text-xl font-inter text-white'
       onClick={ async()=>{

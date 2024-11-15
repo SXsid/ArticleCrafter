@@ -1,15 +1,15 @@
 
 import { useState } from 'react'
-// import './App.css'
 import { useEffect } from 'react'
 import { authService } from './Appwrite/auth'
 import { useDispatch } from 'react-redux'
 import {loggIn,loggOut} from "./Features/authSlice"
-// import ArticleSkeleton from './components/Skeletons/articleSkeleton'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import RouteProtect from './components/ProectionComp/RouteProtect'
-import Card from './components/Card/Card'
+import {ErrorComp,RouteProtect,Card} from "./components/index"
+
+
 import {Dashbord} from "./pages/index"
+
 
 function App() {
   const [loading,setLoading]=useState(true)
@@ -37,7 +37,8 @@ function App() {
   const routes= createBrowserRouter([
     {
       path:"/",
-      element:<Dashbord/>
+      element:<Dashbord/>,
+      errorElement:<ErrorComp/>
     },
     {
       path:"/signin",

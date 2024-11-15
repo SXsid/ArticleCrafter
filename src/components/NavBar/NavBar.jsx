@@ -1,6 +1,8 @@
 import React from 'react'
 import {AuthButton} from "../index"
 import { Link, useLocation } from 'react-router-dom'
+import Hamburger from '../Hamburger/Hamburger';
+import Logo from '../Logo/Logo';
 function NavBar() {
     const path = useLocation()
     console.log(path);
@@ -19,18 +21,19 @@ function NavBar() {
         }
     ]
   return (
-    <nav className='w-full flex justify-between px-20 mt-2 items-center '>
-      <h1 className='text-white font-bold text-3xl font-inter'><span className='text-[rgba(190,44,206,0.89)]'>A</span>rticle <span className='text-custom-purple text-4xl'>/</span><span className='text-custom-purple'>C</span>rafter</h1>
-      <ul className='flex ml-auto mx-20 gap-8 font-inter text-xl '>
+    <nav className='w-full flex justify-between lg:px-20 px-4  mt-5 items-center '>
+      <Logo/>
+      <ul className=' hidden lg:flex ml-auto mx-20 gap-8 font-inter text-xl  '>
         {NavItems.map((item,index)=>{
             return(
-                <li key={index} className={`${path.pathname===item.path?"underline text-custom-purple":"text-white shadow-sm "} hover:text-custom-purple`}>
+                <li key={index} className={`${path.pathname===item.path?"underline text-custom-purple":"text-white shadow-sm "} hover:text-custom-purple block`}>
                     <Link to={item.path}>{item.name}</Link>
                 </li>
             )
         })}
       </ul>
       <AuthButton/>
+      <Hamburger navitem={NavItems}/>
       
     </nav>
   )
