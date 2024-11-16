@@ -11,6 +11,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 function Login() {
+  const emailRef=useRef()
+    const passRef=useRef()
+    const navigate = useNavigate()
+    const dispatch= useDispatch()
     const {register,formState:{errors,isSubmitting},setError ,handleSubmit}=useForm({
         defaultValues:{
             email:"",
@@ -18,10 +22,7 @@ function Login() {
         },
         resolver:zodResolver(loginSchema)
     })
-    const emailRef=useRef()
-    const passRef=useRef()
-    const navigate = useNavigate()
-    const dispatch= useDispatch()
+    
     const loginHandle=async(data)=>{
         // console.log("hello");
         
@@ -84,7 +85,7 @@ function Login() {
           
         </div>
         
-        <div className='text-center mt-2 mx-2 text-custom-white'>Dont't have an Account?       <Link to={"/signup"} className='text-custom-purple underline'>SignUp</Link>
+        <div className='text-center mt-2 mx-2 text-custom-white'>Don't have an Account?       <Link to={"/signup"} className='text-custom-purple underline'>SignUp</Link>
         </div>
        
       </div>

@@ -8,13 +8,15 @@ export default {
     extend: {
       colors: {
         'custom-purple': 'rgba(190, 44, 206, 0.89)',
-        'custom-white':'rgba(255,255,255,0.38)'
+        'custom-white':'rgba(255,255,255,0.38)',
+        'card-background-color':'rgba(0,0,0,0.33)'
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'], 
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ]
 }
 

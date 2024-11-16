@@ -5,10 +5,9 @@ import { authService } from './Appwrite/auth'
 import { useDispatch } from 'react-redux'
 import {loggIn,loggOut} from "./Features/authSlice"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {ErrorComp,RouteProtect,Card} from "./components/index"
+import {ErrorComp,RouteProtect,DotLoader} from "./components/index"
+import {Dashbord, LoginPage, Profile, Publish, SignUpPage} from "./pages/index"
 
-
-import {Dashbord, LoginPage, Profile, SignUpPage} from "./pages/index"
 
 
 function App() {
@@ -33,7 +32,7 @@ function App() {
       setLoading(false)
     }
     CheckUser()
-  },[])
+  },[dispatch])
   const routes= createBrowserRouter([
     {
       path:"/",
@@ -51,8 +50,15 @@ function App() {
     {
       path:"/profile",
       element:<RouteProtect><Profile/></RouteProtect>
+    },
+    {
+      path:"/publish",
+      element:<RouteProtect><Publish/></RouteProtect>
     }
   ])
+  if(loading){
+    return <DotLoader/>
+  }
 
   return (
    

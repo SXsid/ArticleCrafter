@@ -20,13 +20,13 @@ export class AuthService{
             // console.log(UserAccount);
             
             if(!UserAccount){
-                throw new Error
+                throw new Error("Account creation failed. Please try again.")
             }else{
                try{
                 const session= await this.Login({email,password})
                 return session
                }catch(e){
-                throw e
+                throw new Error("Sign-in failed after account creation. Please try logging in manually.")
                }
               
                

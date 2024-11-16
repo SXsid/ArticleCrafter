@@ -5,7 +5,7 @@ function SignUpPage() {
   return (
     <div>
       <NavBar/>
-      <div className='flex justify-center items-center h-screen'>
+      <div className='flex justify-center items-center h-screen '>
       <SignUp/>
       </div>
     

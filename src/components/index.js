@@ -7,6 +7,7 @@ import CustomInput from "./Input.jsx/CustomInput"
 import Button from "./Button/Button"
 import Login from "./AuthComp/Login"
 import SignUp from "./AuthComp/SignUp";
+import DotLoader from "./Loader/DotLoader";
 export{
     Card,
     AuthButton,
@@ -16,7 +17,8 @@ export{
     CustomInput,
     Button,
     Login,
-    SignUp
+    SignUp,
+    DotLoader
     
 
 }

@@ -21,7 +21,7 @@ function Hamburger({ navitem }) {
         id="dropDown"
         className={`${
           currentStatus ? 'translate-x-0' : 'translate-x-full'
-        } fixed top-20 right-0 h-40 w-32 bg-[#9e67a12d]  backdrop-blur-lg shadow-xl p-4 transition-transform duration-300 z-50 rounded-xl lg:hidden`}
+        } fixed top-20 right-0 h-40 w-32 bg-card-background-color  backdrop-blur-lg shadow-xl p-4 transition-transform duration-300 z-50 rounded-xl lg:hidden`}
       >
         {navitem.map((item, index) => (
           <Link

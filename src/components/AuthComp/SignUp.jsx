@@ -24,82 +24,86 @@ function SignUp() {
   })
   
   const SignupHandle=async(data)=>{
-    
-    
     try{
       const Session = await authService.CreateAccount(data)
-      // console.log(Session);
       
       if(Session){
-                
-                
         const UserData= await authService.GetUser()
-        // console.log(UserData);
-        
         if(UserData){
-          
-          
-            dispatch(loggIn({UserId:UserData}))
-            navigate("/")
+          dispatch(loggIn({UserId:UserData}))
+          navigate("/")
         }else{
           setError("root",{message:"plzz login again"})
           navigate("/signin")
-            
         }   
-    }
-    else{
+      }else{
         setError("root",{message:"plzz check credentials.."})
-    }
-}
-   
-
-
+      }
+    }catch(e){
       
-    catch(e){
-      // console.log(e);
-      
-      setError("root",{message:"Error while singup"})
+      setError("root",{message:e.message||"Error while singup"})
     }
 
   } 
   const InputClass =
-  'w-full bg-transparent border border-custom-white rounded-xl h-10 outline-none text-white text-xl font-inter font-extralight ';
+  'w-full bg-transparent border border-custom-white rounded-xl lg:h-10 h-8 outline-none text-white text-xl font-inter font-extralight ';
   return (
     <form autoComplete='off'  onSubmit={handleSubmit(SignupHandle)}>
-       <div className='bg-[#00000054] backdrop-blur-sm p-6   lg:p-10 rounded-2xl z-10 lg:w-[550px] w-[400px] mx-4'>
-       {errors.root && <div className='text-red-600'>{errors.root?.message}</div>}
-       <h1 className='text-center mb-7 text-white text-2xl font-bold'>SigUp to your Account</h1>
-       <div className='flex flex-col   '>
+        <div className='bg-[rgba(0,0,0,0.33)] backdrop-blur-sm p-6  lg:p-10 rounded-2xl z-10 lg:w-[550px] w-[350px] '>
        
-       <CustomInput ref={nameRef} type="text" placeholder={"Enter Name" }className={InputClass} {...register("name")} label="Full Name" />
+       {errors.root && <div className='text-red-600'>{errors.root?.message}</div>}
+        
+        <h1 className='text-center mb-7 text-white text-2xl font-bold'>
+            SigUp to your Account
 
-          <CustomInput ref={emailRef} type="text" placeholder={"Enter your Email" }className={InputClass} {...register("email")} label="Email" />
+        </h1>
+        
+        <div className='flex flex-col   '>
+       
+          <CustomInput 
+          ref={nameRef} 
+          type="text" 
+          placeholder={"Enter Name" }
+          className={InputClass} 
+          {...register("name")} label="Full Name" />
+
+          <CustomInput
+           ref={emailRef} 
+           type="text" 
+           placeholder={"Enter your Email" }
+           className={InputClass}
+            {...register("email")}
+             label="Email" />
+          
           {errors.email &&<div className='text-red-600'>{errors.email?.message}</div>}
           
           
-          <CustomInput  ref={passRef} className={InputClass} label="Password" {...register("password")} />
+          <CustomInput 
+           ref={passRef} 
+           className={InputClass} 
+           label="Password" 
+           {...register("password")} />
+          
           {errors.password &&<div className='text-red-600'>{errors.password?.message}</div>
           }
 
-<div className='flex justify-center  mt-4 '>
-          <Button disabled={isSubmitting} className={`text-white text-xl bg-[#100f0fa7] rounded-xl hover:text-custom-purple`}>
-            {isSubmitting?"loading":"login"}
-          </Button>
+          <div className='flex justify-center  mt-4 '>
+            <Button 
+            disabled={isSubmitting} 
+            className={`text-white text-xl bg-[#100f0fa7] rounded-xl hover:text-custom-purple`}>
+            {isSubmitting?"loading":"Signup"}
+            </Button>
           
-        </div>
+          </div>
         
-        <div className='text-center mt-2 mx-2 text-custom-white'>Already have an Account?       <Link to={"/signin"} className='text-custom-purple underline'>Signin</Link>
-        </div>
-       
-        
-        
-        </div>
-       
-       
-       
-       
-       
-       
+          <div className='text-center mt-2 mx-2 text-custom-white'>
+            Already have an Account?       
+            <Link 
+              to={"/signin"} 
+              className='text-custom-purple underline'>
+              Signin</Link>
+          </div>
+         </div>
        </div>
 
     </form>

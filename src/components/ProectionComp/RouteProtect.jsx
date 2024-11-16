@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 
 function RouteProtect({children}) {
-    const UserData = useSelector(state=>state.auth.UserId)
+    const isLoggedIn = useSelector(state=>state.auth.isLoggedIn)
     // console.log(UserData);
     
-    if(!UserData){
+    if(!isLoggedIn){
         return <Navigate replace={true} to={"/signin"}></Navigate>
         
     }else{
