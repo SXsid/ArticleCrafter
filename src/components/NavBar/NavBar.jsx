@@ -13,7 +13,7 @@ function NavBar() {
             path:"/"
 
         },{
-             name:"Pubish",
+             name:"Publish",
             path:"/publish"
         },{
              name:"Profile",

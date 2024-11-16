@@ -5,6 +5,8 @@ import { NavBar } from '../components'
 
 function Profile() {
     const UserData= useSelector(state=>state.auth.UserId)
+    console.log(UserData);
+    
   return (
     <div>
         <NavBar/>

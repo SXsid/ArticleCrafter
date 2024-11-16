@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {ErrorComp,RouteProtect,Card} from "./components/index"
 
 
-import {Dashbord, LoginPage, Profile} from "./pages/index"
+import {Dashbord, LoginPage, Profile, SignUpPage} from "./pages/index"
 
 
 function App() {
@@ -43,6 +43,10 @@ function App() {
     {
       path:"/signin",
       element:<LoginPage/>
+    },
+    {
+      path:"/signup",
+      element:<SignUpPage/>
     },
     {
       path:"/profile",

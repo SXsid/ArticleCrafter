@@ -33,18 +33,19 @@ function Login() {
                 
                 
                 const UserData= await authService.GetUser()
-                console.log(UserData);
+                // console.log(UserData);
                 
                 if(UserData){
                     dispatch(loggIn({UserId:UserData}))
                     navigate("/")
                 }else{
-                    throw new Error
+                  setError("root",{message:"plzz login again"})
+                  navigate("/signin")
                     
                 }   
             }
             else{
-                throw new Error
+                setError("root",{message:"plzz check credentials.."})
             }
         }catch(e){
             setError("root",{message:"error while logging in "})

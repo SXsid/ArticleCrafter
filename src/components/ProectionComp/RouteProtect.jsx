@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 
 function RouteProtect({children}) {
     const UserData = useSelector(state=>state.auth.UserId)
-    console.log(UserData);
+    // console.log(UserData);
     
     if(!UserData){
         return <Navigate replace={true} to={"/signin"}></Navigate>
