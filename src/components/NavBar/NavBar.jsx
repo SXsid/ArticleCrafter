@@ -10,7 +10,7 @@ function NavBar() {
     const NavItems=[
         {
             name:"Home",
-            path:"/"
+            path:"/home"
 
         },{
              name:"Publish",

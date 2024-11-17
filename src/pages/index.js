@@ -3,10 +3,14 @@ import LoginPage from "./LoginPage";
 import Profile from "./Profile";
 import SignUpPage from "./SignUpPage"
 import Publish from "./Publish";
+import LandingPage from "./Landing";
+
+
 export{
     Dashbord,
     LoginPage,
     Profile,
     SignUpPage,
-    Publish
+    Publish,
+    LandingPage
 }

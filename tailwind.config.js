@@ -7,12 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-purple': 'rgba(190, 44, 206, 0.89)',
-        'custom-white':'rgba(255,255,255,0.38)',
-        'card-background-color':'rgba(0,0,0,0.33)'
+        'custom-purple': '#B794F4',
+        'custom-white':'#FED7E2',
+        'card-background-color':'rgba(0,0,0,0.13)',
+        'gradient-start': '#B794F4',
+        'gradient-end': '#FED7E2',
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'], 
+      },
+      
+      backgroundImage: {
+        'gradient-text': 'linear-gradient(90deg, #B794F4, #FED7E2)',
       },
     },
   },

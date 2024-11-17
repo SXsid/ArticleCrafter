@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import {loggIn,loggOut} from "./Features/authSlice"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {ErrorComp,RouteProtect,DotLoader} from "./components/index"
-import {Dashbord, LoginPage, Profile, Publish, SignUpPage} from "./pages/index"
+import {Dashbord, LandingPage, LoginPage, Profile, Publish, SignUpPage} from "./pages/index"
 
 
 
@@ -36,8 +36,14 @@ function App() {
   const routes= createBrowserRouter([
     {
       path:"/",
-      element:<RouteProtect><Dashbord/></RouteProtect>,
+      element:<LandingPage/>,
       errorElement:<ErrorComp/>
+
+    },
+    {
+      path:"/Home",
+      element:<RouteProtect><Dashbord/></RouteProtect>,
+     
     },
     {
       path:"/signin",

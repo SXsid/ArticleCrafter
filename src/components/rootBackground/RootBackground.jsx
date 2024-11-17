@@ -1,17 +1,31 @@
 import React from 'react';
-
+import { motion } from 'framer-motion';
 
 const BackgroundLayout = ({ children }) => {
   return (
-    <div className="relative overflow-hidden h-screen">
-      
-      <div className="absolute inset-0 flex justify-center items-center -z-10">
-        <div className="absolute w-[615px] h-[635px] blur-[900px] lg:bg-[rgb(227,94,207)] rotate-[146deg] bg-[rgba(152,78,174,0.6)]"></div>
+    <div className="relative  h-screen">
+      {/* Animated Background */}
+      <div className="fixed inset-0 z-0">
+        <motion.div
+          className="absolute inset-0 opacity-30"
+          animate={{
+            background: [
+              'radial-gradient(circle at 0% 0%, #B794F4 0%, transparent 50%)',
+              'radial-gradient(circle at 100% 100%, #B794F4 0%, transparent 50%)',
+              'radial-gradient(circle at 0% 100%, #B794F4 0%, transparent 50%)',
+              'radial-gradient(circle at 100% 0%, #B794F4 0%, transparent 50%)'
+            ]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: 'reverse'
+          }}
+        />
       </div>
 
-      
       {/* Main Content */}
-      <div className="relative w-full z-1000">{children}</div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };
