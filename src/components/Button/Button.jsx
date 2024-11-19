@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Button({className,children,disabled}) {
+function Button({className,children,disabled,...prop}) {
   return (
-    <button  className={`${className} px-8 py-3 `}disabled={disabled} >
+    <button {...prop}  className={`${className} px-8 py-3 `}disabled={disabled} >
       {children}
     </button>
   )

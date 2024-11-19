@@ -10,12 +10,18 @@ export class StorageService{
         this.storage= new Storage(this.client)
     }
     async uploadThumbnail(ImageFile){
+        // console.log(ImageFile);
+        
         try{
+            console.log(Config.appWriteBucketId);
+            
             const thumbnail_id= await this.storage.createFile(Config.appWriteBucketId,ID.unique(),ImageFile)
+            // console.log(thumbnail_id);
+            
             return thumbnail_id
 
         }catch(e){
-            console.log(e);
+            // console.log(e);
             return false
             
         }
@@ -26,7 +32,7 @@ export class StorageService{
             return true
 
         }catch(e){
-            console.log(e);
+            // console.log(e);
             return false
             
         }

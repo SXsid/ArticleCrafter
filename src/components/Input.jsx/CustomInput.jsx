@@ -10,7 +10,7 @@ const CustomInput = forwardRef(function CustomInput({
     return(
         <div className='flex flex-col mt-4'>
             {label&&<label className="text-white" htmlFor={id}>{label}</label>}
-            <input autoComplete='off'  ref={ref} id={id} type={type} {...props} className={`${className}`}/>
+            <input  autoComplete='off'  ref={ref} id={id} type={type} {...props} className={`${className}`}/>
         </div>
     )
 })

@@ -17,7 +17,7 @@ const AuthButton = () => {
       whileHover="hover"
     >
       <motion.div
-        className="absolute -inset-1 rounded-full "
+        className="absolute -inset-[0.125rem] rounded-full "
         style={{
           background: "linear-gradient(90deg, #B794F4, #FED7E2, #B794F4)",
           backgroundSize: "200% 100%",
@@ -26,14 +26,14 @@ const AuthButton = () => {
           backgroundPosition: ["0% 50%", "200% 50%"],
         }}
         transition={{
-          duration: 3,
+          duration: 2,
           repeat: Infinity,
           repeatType: "reverse",
         }}
       />
       
       <button
-      className="relative px-8 py-3 bg-[#1A1625] rounded-full text-pink-100 font-semibold hover:scale-110"  onClick={ async()=>{
+      className="relative px-8  py-3 bg-[#1A1625] rounded-full text-pink-100 font-semibold "  onClick={ async()=>{
         if(isloggedIn){
             await authService.LogOut()
             dispatch(loggOut())

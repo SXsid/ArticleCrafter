@@ -10,16 +10,20 @@ export class DbService{
         this.client.setEndpoint(Config.appwriteUrl).setProject(Config.appWriteProjectId)
         this.database = new Databases(this.client)
     }
-    async CreatePost({userId,userName,title,content,date,thumbnail}){
+    async CreatePost({userId,userName,title,content,date,thumbnail_Id}){
+        // console.log(userId,userName,title,content,date,thumbnail_Id);
+        
         try{
             const post = await this.database.createDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ID.unique(),{
                 userId,
                 title,
                 content,
                 date,
-                thumbnail,
+                thumbnail_Id,
                 userName
             })
+            // console.log(post);
+            
             return post
         }catch(e){
             console.log(e);
@@ -28,13 +32,13 @@ export class DbService{
         }
     }
     //we can't allow to change the use and the time of publish
-    async UpdatePost({ArticleId,title,content,thumbnail}){
+    async UpdatePost(ArticleId,{title,content,thumbnail_Id}){
         try{
             return await this.database.updateDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ArticleId,{
                 
                 title,
                 content,
-                thumbnail
+                thumbnail_Id
             })
         }catch(e){
             console.log(e);

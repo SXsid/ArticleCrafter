@@ -8,6 +8,9 @@ import Button from "./Button/Button"
 import Login from "./AuthComp/Login"
 import SignUp from "./AuthComp/SignUp";
 import DotLoader from "./Loader/DotLoader";
+import MyEditor from "./TextEditor/Editor";
+import PublishForm from "./Publish-form/PublishForm";
+
 export{
     Card,
     AuthButton,
@@ -18,7 +21,9 @@ export{
     Button,
     Login,
     SignUp,
-    DotLoader
+    DotLoader,
+    MyEditor,
+    PublishForm
     
 
 }
