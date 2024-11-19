@@ -106,9 +106,10 @@ function PublishForm({Article}) {
            }
         }
     }
-    const buttonClass ="border-2 border-custom-purple rounded-2xl text-xl text-white hover:scale-110 hover:text-custom-purple hover:font-bold w-auto";
+    const buttonClass ="border-2 border-gradient-end rounded-2xl text-xl text-white hover:scale-110 hover:text-gradient-end hover:font-bold w-auto";
   return (
     <div className="flex flex-col items-center mt-10">
+      {errors.root &&<div className='text-red-600 text-xl'>{errors.root?.message}</div>}
     <form
       autoComplete="off"
       onSubmit={handleSubmit(ArticleSubmit)}
@@ -129,7 +130,7 @@ function PublishForm({Article}) {
 
         <CustomInput
         ref={imageRef}
-          className="w-full text-gradient-end  rounded-lg px-4 py-2 focus:border-blue-500 transition"
+          className="w-full hover:cursor-pointer text-gradient-end  rounded-lg px-4 py-2 focus:border-blue-500 transition"
           label="Cover Image"
           type="file"
           accept="image/png, image/jpg, image/jpeg, image/gif"

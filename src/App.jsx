@@ -42,7 +42,7 @@ function App() {
     },
     {
       path:"/Home",
-      element:<RouteProtect><Dashbord/></RouteProtect>,
+      element:<><Dashbord/></>,
      
     },
     {

@@ -47,7 +47,7 @@ export default function MyEditor({ control, defaultValues }) {
                 ].join(' '),
               }}
             />
-            {error && <div className="text-red-500 text-sm mt-2">{error.message}</div>}
+            {/* {error && <div className="text-red-500 text-sm mt-2">{error.message}</div>} */}
           </>
         )}
       />

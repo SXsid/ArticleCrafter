@@ -1,29 +1,51 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import storageServices from '../../Appwrite/StorageServices'
 
-function Card({$id,thumbnail_Id,title,content,userName}) {
+function Card({$id, thumbnail_Id, title, content, userName, date}) {
   return (
-    <Link to={`${$id}`}>
-      <div className='z-200 shadow-lg rounded-xl lg:w-[700px] lg:h-[150px] bg-[#5f3d753a]  text-custom-purple  backdrop-blur-lg w-[200px] h-[300px] lg:flex'>
-        <div id='image'>
-          <img alt={title} src={storageServices.ThumbnailPreview(thumbnail_Id)}/>
+    <Link to={`/article/${$id}`}>
+      <motion.div 
+        className='z-200 shadow-lg rounded-xl lg:w-[850px] lg:h-[100px] bg-[#5f3d753a] text-custom-purple backdrop-blur-lg w-[200px] h-[300px] lg:flex overflow-hidden relative group'
+        style={{
+          backgroundColor: '#5f3d753a', 
+        }}
+        animate={{
+          boxShadow: "0px 0px 25px 10px rgba(183, 148, 244, 0.8)",  
+        }}
+        transition={{
+          duration: 0.4,
+          repeat: Infinity,
+          ease: "easeInOut", 
+          repeatType: 'reverse', 
+        }}
+      >
+        <div id='image' className='p-2 overflow-hidden w-auto'>
+          <img 
+            alt={title} 
+            className='rounded-lg w-full max-w-[200px] max-h-[180px] lg:max-h-[250px] lg:max-w-[150px]'  
+            height={100} 
+            src={storageServices.ThumbnailPreview(thumbnail_Id)}
+          />
         </div>
-        <div id='content'>
-          <div>
-            <div id='main' className='flex gap-4'>
-              <div className='h-3 w-3 rounded-full'>{userName[0]}</div>
-              <div>{userName}</div>
-            </div>
-            <h2>{title}</h2>
-            <p>{content[40]}</p>
-           
-          </div>
 
+       
+        <div>
+          
+        {/* <div className=' hidden mt-2 absolute bg-gradient-start h-10 w-10 rounded-full text-white lg:flex items-center justify-center'>
+              <h1 className='text-2xl'>{userName[0]}</h1>
+            </div> */}
+            <h2 className='  mt-2 mx-2 lg:text-3xl text-xl text-white font-bold overflow-hidden font-inter'>{title}<span className='text-gradient-end underline text-xl mx-3'>:~<span className='text-xl text-gradient-start'>{userName}</span></span></h2>
+         
+
+          
+          <div className=' hidden lg:block absolute bottom-2 right-2 text-white text-sm'>
+            <div className='text-gradient-end underline '><span className='text-white'>Published on</span>~{date}</div>
+          </div>
         </div>
-     
-      
-    </div>
+        
+      </motion.div>
     </Link>
   )
 }
