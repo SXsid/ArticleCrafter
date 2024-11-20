@@ -2,7 +2,7 @@ import { Editor as TinyEditor } from '@tinymce/tinymce-react';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 
-export default function MyEditor({ control, defaultValues }) {
+export default function MyEditor({ control, defaultValues="hi there" }) {
   return (
     <div className="">
       <Controller
@@ -24,7 +24,7 @@ export default function MyEditor({ control, defaultValues }) {
                 },
                 selector: 'textarea',
                 theme: 'silver',
-                width: 800,
+                width: 900,
                 skin: 'oxide',
                 menubar: true,
                 content_style: `

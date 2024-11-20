@@ -12,7 +12,7 @@ function Card({$id, thumbnail_Id, title, content, userName, date}) {
           backgroundColor: '#5f3d753a', 
         }}
         animate={{
-          boxShadow: "0px 0px 25px 10px rgba(183, 148, 244, 0.8)",  
+          boxShadow: "0px 0px 10px 10px rgba(183, 148, 244, 0.8)",  
         }}
         transition={{
           duration: 0.4,

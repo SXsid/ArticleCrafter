@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import {CustomInput,Button,MyEditor} from "../index"
 import dbService from '../../Appwrite/DbServices'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import storageServices from '../../Appwrite/StorageServices'
+import PublishComp from './PublishComp'
 
 function PublishForm({Article}) {
     const navigate=useNavigate()
@@ -106,60 +106,13 @@ function PublishForm({Article}) {
            }
         }
     }
+    
     const buttonClass ="border-2 border-gradient-end rounded-2xl text-xl text-white hover:scale-110 hover:text-gradient-end hover:font-bold w-auto";
-  return (
-    <div className="flex flex-col items-center mt-10">
-      {errors.root &&<div className='text-red-600 text-xl'>{errors.root?.message}</div>}
-    <form
-      autoComplete="off"
-      onSubmit={handleSubmit(ArticleSubmit)}
-      className="flex flex-col md:flex-row justify-between w-full max-w-4xl mx-8 md:mx-28 gap-10"
-    >
-      <div className="flex flex-col w-full md:w-2/3 gap-6">
-        <CustomInput
-          className="h-12 rounded-xl font-bold outline-none text-2xl px-4 border border-gradient-end focus:border-gradient-start text-white font-inter transition bg-transparent"
-          ref={titleRef}
-          label="Title"
-          placeholder="Title"
-        //   value={getValues('title')}
-          {...register('title', { required: 'Title is required' })}
-        />
-        {errors.title && (
-          <div className="text-red-500 text-sm">{errors.title.message}</div>
-        )}
-
-        <CustomInput
-        ref={imageRef}
-          className="w-full hover:cursor-pointer text-gradient-end  rounded-lg px-4 py-2 focus:border-blue-500 transition"
-          label="Cover Image"
-          type="file"
-          accept="image/png, image/jpg, image/jpeg, image/gif"
-          {...register('Image', {
-            required: !Article ? 'Cover Image is required' : false,
-          })}
-        />
-        {errors.Image && (
-          <div className="text-red-500 text-sm">{errors.Image.message}</div>
-        )}
-
-        <MyEditor control={control} defaultValues={getValues('content')} />
-        {errors.content && (
-          <div className="text-red-500 text-sm">{errors.content.message}</div>
-        )}
-      </div>
-
-      <div className="flex mx-10 justify-center md:justify-normal items-center md:items-start gap-4 mt-4 md:mt-10">
-        <Button className={`${buttonClass} w-full md:w-auto`} disabled={!isSubmitSuccessful}>
-          Preview
-        </Button>
-        <Button className={`${buttonClass} w-full md:w-auto`} disabled={isSubmitting} type="submit">
-          {isSubmitting ? 'Publishing..' : 'Publish'}
-        </Button>
-      </div>
-    </form>
-  </div>
-
-  )
+    return (
+     <PublishComp errors={errors} isSubmitSuccessful={isSubmitSuccessful}
+     isSubmitting={isSubmitting} getValues={getValues} titleRef={titleRef}
+     imageRef={imageRef} ArticleSubmit={ArticleSubmit} handleSubmit={handleSubmit} register={register} Article={Article} control={control}/>
+    );
 }
 
 export default PublishForm
