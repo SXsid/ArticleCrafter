@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import {loggIn,loggOut} from "./Features/authSlice"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {ErrorComp,RouteProtect,DotLoader} from "./components/index"
-import {Dashbord, LandingPage, LoginPage, Profile, Publish, SignUpPage} from "./pages/index"
+import {Dashbord, EditPost, LandingPage, LoginPage, Post, Profile, Publish, SignUpPage} from "./pages/index"
 
 
 
@@ -60,6 +60,14 @@ function App() {
     {
       path:"/publish",
       element:<RouteProtect><Publish/></RouteProtect>
+    },
+    {
+      path:"/article/:id",
+      element:<RouteProtect><EditPost/></RouteProtect>
+    },
+    {
+      path:"/post/:id",
+      element:<RouteProtect><Post/></RouteProtect>
     }
   ])
   if(loading){

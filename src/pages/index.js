@@ -4,6 +4,8 @@ import Profile from "./Profile";
 import SignUpPage from "./SignUpPage"
 import Publish from "./Publish";
 import LandingPage from "./Landing";
+import EditPost from "./EditPost";
+import Post from "./Post";
 
 
 
@@ -13,5 +15,8 @@ export{
     Profile,
     SignUpPage,
     Publish,
-    LandingPage
+    LandingPage,
+    EditPost,
+    Post
+    
 }

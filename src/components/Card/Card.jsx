@@ -5,7 +5,7 @@ import storageServices from '../../Appwrite/StorageServices'
 
 function Card({$id, thumbnail_Id, title, content, userName, date}) {
   return (
-    <Link to={`/article/${$id}`}>
+    <Link to={`/post/${$id}`}>
       <motion.div 
         className='z-200 shadow-lg rounded-xl lg:w-[850px] lg:h-[100px] bg-[#5f3d753a] text-custom-purple backdrop-blur-lg w-[200px] h-[300px] lg:flex overflow-hidden relative group'
         style={{
@@ -24,7 +24,7 @@ function Card({$id, thumbnail_Id, title, content, userName, date}) {
         <div id='image' className='p-2 overflow-hidden w-auto'>
           <img 
             alt={title} 
-            className='rounded-lg w-full max-w-[200px] max-h-[180px] lg:max-h-[250px] lg:max-w-[150px]'  
+            className='rounded-lg lg:w-[100px] lg:h-[100px] h-[150px] w-[300px]'  
             height={100} 
             src={storageServices.ThumbnailPreview(thumbnail_Id)}
           />

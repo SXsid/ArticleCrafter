@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Edit, Type, Wand2, Code, Command, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const BorderButton = () => {
+export const BorderButton = ({to,childern}) => {
   return (
     <motion.div
       className="relative inline-block"
@@ -24,11 +24,11 @@ const BorderButton = () => {
           repeatType: "reverse",
         }}
       />
-      <Link to={"/home"} >
+      <Link to={to} >
         <button
           className="relative px-8 py-3 bg-[#1A1625] rounded-lg text-pink-100 font-semibold"
         >
-          Try it Now
+          {childern}
         </button>
       </Link>
     </motion.div>
@@ -128,7 +128,7 @@ const LandingPage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                <BorderButton />
+                <BorderButton to={"/home"} childern={"Try it now"}></BorderButton>
               </motion.div>
             </motion.div>
 
