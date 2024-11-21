@@ -14,7 +14,7 @@ function App() {
   const [loading,setLoading]=useState(true)
   const dispatch = useDispatch()
   
-  //we have user when app will load ?
+  
   useEffect(()=>{
     const CheckUser=async()=>{
       try{
@@ -25,7 +25,6 @@ function App() {
           throw new Error
         }
       }catch(e){
-        // console.log(e);
         
         dispatch(loggOut())
       }
@@ -42,7 +41,7 @@ function App() {
     },
     {
       path:"/Home",
-      element:<><Dashbord/></>,
+      element:<Dashbord/>
      
     },
     {

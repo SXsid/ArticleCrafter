@@ -7,15 +7,15 @@ function EditPost() {
     const [article,setArticle]=useState(null)
     const navigate =useNavigate()
     const ArticleId=useParams()
-    console.log(ArticleId);
-    
+    // console.log(ArticleId);
+    const isAuthor = 
     useEffect(()=>{
         const dataFetch =async()=>{
             const post = await dbService.GetPost(ArticleId.id)
 
             if(post){
                 setArticle(post)
-                console.log(post);
+                // console.log(post);
                 
 
             }else{
