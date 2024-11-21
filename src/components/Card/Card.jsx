@@ -7,7 +7,7 @@ function Card({$id, thumbnail_Id, title, content, userName, date}) {
   return (
     <Link to={`/post/${$id}`}>
       <motion.div 
-        className=' shadow-lg rounded-xl lg:w-[850px] lg:h-[100px] bg-[#5f3d753a] text-custom-purple backdrop-blur-lg w-[300px] mx-2 h-[300px] lg:flex   group overflow-hidden'
+        className=' shadow-lg rounded-xl lg:w-[850px] lg:h-[100px] bg-[#5f3d753a] text-custom-purple backdrop-blur-lg w-[280px]  lg:mx-10 h-[300px] lg:flex   group overflow-hidden'
         style={{
           backgroundColor: '#5f3d753a', 
         }}

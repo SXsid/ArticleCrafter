@@ -7,13 +7,13 @@ import { motion } from 'framer-motion'
 
 
 
-const AuthButton = () => {
+const AuthButton = ({isProfle}) => {
   const isloggedIn = useSelector(state=>state.auth.isLoggedIn)
     const dispatch = useDispatch()
     const navigate = useNavigate()
   return (
     <motion.div
-      className="relative lg:inline-block hidden  "
+      className={`relative ${isProfle?"":"lg:inline-block hidden"}  `}
       whileHover="hover"
     >
       <motion.div

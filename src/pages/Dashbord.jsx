@@ -11,7 +11,7 @@ function Dashboard() {
     <div>
       <NavBar />
       <div className='w-full mt-10 '>
-  <div className='grid lg:grid-cols-1 gap-5   '>
+  <div className='grid lg:grid-cols-1 gap-5 lg:mx-10   '>
     {articles.map((article) => (
       <div 
         key={article.$id} 

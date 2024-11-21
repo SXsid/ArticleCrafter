@@ -92,24 +92,24 @@ const LandingPage = () => {
         />
       </div>
 
-      {/* Content Container */}
+      
       <div className="relative z-10">
-        {/* Hero Section with Horizontal Layout */}
+        
         <div className="container mx-auto px-8 py-12">
-          <div className="grid grid-cols-2 gap-12 items-center">
-            {/* Left Side - Content */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+           
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
               <motion.div
-                className="text-6xl font-bold mb-6 bg-clip-text text-transparent"
+                className="lg:text-6xl text-2xl font-bold mb-6 bg-clip-text text-transparent"
                 style={{
                   backgroundImage: "linear-gradient(90deg, #B794F4, #FED7E2)",
                 }}
               >
-                Article/Crafter
+               <div className='text-4xl lg:text-6xl'> Article/Crafter</div>
               </motion.div>
 
               <motion.p
@@ -128,7 +128,7 @@ const LandingPage = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
               >
-                <BorderButton to={"/home"} childern={"Try it now"}></BorderButton>
+                <div className='flex justify-center lg:flex-none lg:justify-normal lg-mt-0 mt-10'><BorderButton to={"/home"} childern={"Try it now"}></BorderButton></div>
               </motion.div>
             </motion.div>
 
@@ -192,7 +192,7 @@ const LandingPage = () => {
 
         {/* Features Section */}
         <motion.div
-          className="container mx-auto px-8 py-20"
+          className="container mx-auto px-8 py-20 hidden lg:block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -233,9 +233,9 @@ const LandingPage = () => {
           </div>
         </motion.div>
 
-        {/* "Try it Now" Button at Bottom Center */}
+      
         <motion.div
-          className=" mt-10 left-1/2 transform -translate-x-1/2"
+          className=" lg:mt-10 mt-4 left-1/2 transform -translate-x-1/2"
           drag
           dragConstraints={{ left: -100, right: 100 }}
         >

@@ -32,7 +32,7 @@ function NavBar() {
             )
         })}
       </ul>
-      <AuthButton/>
+      <AuthButton isProfle={false}/>
       <Hamburger navitem={NavItems}/>
       
     </nav>

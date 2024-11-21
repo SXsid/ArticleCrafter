@@ -56,7 +56,7 @@ function Login() {
     }
 
     const InputClass =
-    'w-full bg-transparent border border-custom-white rounded-xl h-10 outline-none text-white text-xl font-inter font-extralight ';
+    'w-full bg-transparent border border-custom-white rounded-xl h-10 outline-none text-white text-xl font-inter font-extralight px-4 ';
   return (
     <form onSubmit={handleSubmit(loginHandle)} className='flex justify-center items-center min-h-[calc(100vh-60px)] w-full'>
         

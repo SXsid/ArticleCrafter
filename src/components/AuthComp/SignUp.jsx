@@ -46,7 +46,7 @@ function SignUp() {
 
   } 
   const InputClass =
-  'w-full bg-transparent border border-custom-white rounded-xl lg:h-10 h-8 outline-none text-white text-xl font-inter font-extralight ';
+  'w-full bg-transparent border border-custom-white rounded-xl lg:h-10 h-8 outline-none text-white text-xl font-inter font-extralight px-4';
   return (
     <form autoComplete='off'  onSubmit={handleSubmit(SignupHandle)}>
         <div className='bg-[rgba(0,0,0,0.33)] backdrop-blur-sm p-6  lg:p-10 rounded-2xl z-10 lg:w-[550px] w-[350px] '>

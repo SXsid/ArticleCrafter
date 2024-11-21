@@ -3,7 +3,7 @@ import React, { forwardRef, useId } from 'react'
 const CustomInput = forwardRef(function CustomInput({
     label,
     type="text",
-    className="outline-none rounded-lg w-60 h-8 bg-[#2322228b] text-white",
+    className="outline-none rounded-lg w-60 h-8  bg-[#2322228b] text-white",
     ...props
 },ref){
     const id = useId()
