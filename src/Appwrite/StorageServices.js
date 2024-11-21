@@ -38,6 +38,8 @@ export class StorageService{
         }
     }
     ThumbnailPreview(thumbnail_id){
+        console.log(Config.appWriteBucketId);
+        
         try{
             const file = this.storage.getFilePreview(Config.appWriteBucketId,thumbnail_id)
             return file
