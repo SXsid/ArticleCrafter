@@ -24,7 +24,7 @@ function PublishForm({Article}) {
             }
         })
     const ArticleSubmit=async(data)=>{
-        console.log(data);
+       
         
         if(Article){
           try{
@@ -55,7 +55,7 @@ function PublishForm({Article}) {
         }
         //new article
         else{
-            console.log("start")
+            
            try{
             let imageFile
             if(data.Image && data.Image[0]){
@@ -63,20 +63,11 @@ function PublishForm({Article}) {
             }else{
                 throw new Error("plzz upload an image")
             }
-            console.log(imageFile,"satrt");
+           
             
             if(imageFile){
-                console.log("db start");
-                console.log(userData);
                 
-                console.log({
-                    userId:userData.$id,
-                    userName:userData.name,
-                    title:data.title,
-                    content:data.content,
-                    thumbnail_Id:imageFile.$id,
-                    date:todayDate
-                });
+               
                 
                 
                 const newArticle = await dbService.CreatePost({
@@ -87,12 +78,11 @@ function PublishForm({Article}) {
                     thumbnail_Id:imageFile.$id,
                     date:todayDate
                 })
-                console.log(newArticle);
-                
+               
                 if(newArticle){
                     navigate(`/post/${newArticle.$id}`)
                 }else{
-                    console.log("deltet fun");
+                    
                     
                     await storageServices.deleteFile(imageFile.$id)
                     throw new Error("Error while storing the article")

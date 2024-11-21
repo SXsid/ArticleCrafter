@@ -11,7 +11,7 @@ export class DbService{
         this.database = new Databases(this.client)
     }
     async CreatePost({userId,userName,title,content,date,thumbnail_Id}){
-        // console.log(userId,userName,title,content,date,thumbnail_Id);
+       
         
         try{
             const post = await this.database.createDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ID.unique(),{
@@ -22,11 +22,11 @@ export class DbService{
                 thumbnail_Id,
                 userName
             })
-            // console.log(post);
+            
             
             return post
         }catch(e){
-            console.log(e);
+           
             return false
             
         }
@@ -41,7 +41,7 @@ export class DbService{
                 thumbnail_Id
             })
         }catch(e){
-            console.log(e);
+            
             return false
         }
     }
@@ -49,7 +49,7 @@ export class DbService{
         try{
             return await this.database.deleteDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ArticleId)
         }catch(e){
-            console.log(e);
+        
             return false
         }
     }
@@ -58,7 +58,7 @@ export class DbService{
             const post= await this.database.getDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ArticleId)
             return post
         }catch(e){
-            console.log(e);
+           
             return false
         }
     }
@@ -66,7 +66,7 @@ export class DbService{
         try{
             return await this.database.listDocuments(Config.appWriteDatabaseId,Config.appWriteCollectionId,Query.equal("userId",[userId]))
         }catch(e){
-            console.log(e);
+           
             return false
         }
     }
@@ -75,7 +75,7 @@ export class DbService{
         try{
             return await this.database.listDocuments(Config.appWriteDatabaseId,Config.appWriteCollectionId)
         }catch(e){
-            console.log(e);
+          
             
         }
     }

@@ -7,7 +7,6 @@ function EditPost() {
     const [article,setArticle]=useState(null)
     const navigate =useNavigate()
     const ArticleId=useParams()
-    // console.log(ArticleId);
     const isAuthor = 
     useEffect(()=>{
         const dataFetch =async()=>{
@@ -15,9 +14,7 @@ function EditPost() {
 
             if(post){
                 setArticle(post)
-                // console.log(post);
-                
-
+            
             }else{
                     navigate("/")
             }

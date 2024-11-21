@@ -13,11 +13,11 @@ export class AuthService{
     }
     //cusotm fucntion which wil use appwrite under the hood
     async CreateAccount({name,email,password}){
-        // console.log({name,email,password});
+       
         
         try{
             const UserAccount= await this.account.create(ID.unique(),email,password,name)
-            // console.log(UserAccount);
+            
             
             if(!UserAccount){
                 throw new Error("Account creation failed. Please try again.")
