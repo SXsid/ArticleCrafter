@@ -21,7 +21,7 @@ export class StorageService{
             return thumbnail_id
 
         }catch(e){
-            // console.log(e);
+            console.log(e);
             return false
             
         }
@@ -32,7 +32,7 @@ export class StorageService{
             return true
 
         }catch(e){
-            // console.log(e);
+            console.log(e);
             return false
             
         }
