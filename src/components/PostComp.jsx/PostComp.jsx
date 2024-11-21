@@ -53,7 +53,7 @@ function PostComp({article,btnClass,scrollYProgress,deletetHandler,calculateRead
                             >
                                 <img 
                                     src={storageServices.ThumbnailPreview(article.thumbnail_Id)}
-                                    className="max-w-3xl h-[300px] lg:h-[400px] object-cover rounded-xl shadow-lg"
+                                    className="lg:max-w-3xl lg:h-[300px]  object-cover rounded-xl shadow-lg"
                                     alt="Article Thumbnail"
                                 />
                                 
@@ -79,11 +79,11 @@ function PostComp({article,btnClass,scrollYProgress,deletetHandler,calculateRead
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
                         >
-                            <h1 className="text-4xl font-extrabold mb-8 text-gradient-start font-inter">
+                            <h1 className="lg:text-4xl text-xl font-extrabold mb-8 text-gradient-start font-inter">
                                 {article.title}
                             </h1>
 
-                            <div className="text-lg leading-relaxed font-inter text-gray-200">
+                            <div className="lg:text-lg text-sm leading-relaxed font-inter text-gray-200">
                                 {parse(article.content, {
                                     replace: (node) => {
                                         if (node.name === 'code') {
