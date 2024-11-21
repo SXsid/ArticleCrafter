@@ -5,7 +5,7 @@ function Dashbord() {
 
   if (isLoading) return <div><DotLoader/></div>;
   if (error) return <div>Error: {error.message}</div>;
-  // console.log(articles);
+  
   
   return (
     <div>
