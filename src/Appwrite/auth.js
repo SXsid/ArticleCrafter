@@ -1,17 +1,16 @@
 import {Client,Account, ID} from "appwrite"
 import Config from "../config/config"
-//we need to use class to we can exprot them as a custom mehtodn rather than dirclty expositn the appwritre funtion
 
 export class AuthService{
     client=new Client()
     account;
-    // i wnat both to intialize when an objxt is created 
+    
     constructor(){
         this.client.setEndpoint(Config.appwriteUrl).setProject(Config.appWriteProjectId)
         this.account= new Account(this.client)
 
     }
-    //cusotm fucntion which wil use appwrite under the hood
+   
     async CreateAccount({name,email,password}){
        
         

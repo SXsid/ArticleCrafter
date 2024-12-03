@@ -24,17 +24,16 @@ function Login() {
     })
     
     const loginHandle=async(data)=>{
-        // console.log("hello");
+        
         
         try{
-            // console.log("data");
-            // await new Promise(resolve=>setTimeout(resolve,1000))
+            
             const session =await authService.Login(data)
             if(session){
                 
                 
                 const UserData= await authService.GetUser()
-                // console.log(UserData);
+               
                 
                 if(UserData){
                     dispatch(loggIn({UserId:UserData}))

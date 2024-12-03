@@ -6,7 +6,7 @@ export class DbService{
     database
     
     constructor(){
-        //client used for connection establishment 
+      
         this.client.setEndpoint(Config.appwriteUrl).setProject(Config.appWriteProjectId)
         this.database = new Databases(this.client)
     }
@@ -31,7 +31,7 @@ export class DbService{
             
         }
     }
-    //we can't allow to change the use and the time of publish
+    
     async UpdatePost(ArticleId,{title,content,thumbnail_Id}){
         try{
             return await this.database.updateDocument(Config.appWriteDatabaseId,Config.appWriteCollectionId,ArticleId,{

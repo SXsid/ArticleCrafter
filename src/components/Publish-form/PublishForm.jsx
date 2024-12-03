@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
-import dbService from '../../Appwrite/DbServices'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import storageServices from '../../Appwrite/StorageServices'
 import PublishComp from './PublishComp'
+import { useCreateArticleMutation, useUpdateArticleMutation } from '../../Features/articleSlice'
 
 function PublishForm({Article}) {
     const navigate=useNavigate()
@@ -13,6 +13,8 @@ function PublishForm({Article}) {
     const todayDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`
     const titleRef =useRef()
     const imageRef =useRef()
+    const [createArticle]=useCreateArticleMutation()
+    const [updateArticle]=useUpdateArticleMutation()
     
     const {register,handleSubmit,
         formState:{errors,isSubmitting,isSubmitSuccessful},
@@ -35,14 +37,17 @@ function PublishForm({Article}) {
                     await storageServices.deleteFile(Article.thumbnail_Id)
                     }
             }
-            const newArticle = await dbService.UpdatePost(Article.$id,{
-             title:data.title,
-             content:data.content,
-             thumbnail_Id:newImage?newImage.$id:Article.thumbnail_Id,
- 
+            const newArticle = await updateArticle({
+                id:Article.$id,
+                data:{
+                    title:data.title,
+                    content:data.content,
+                    thumbnail_Id:newImage?newImage.$id:Article.thumbnail_Id,
+        
+                   }
             })
             if(newArticle){
-             navigate(`/post/${newArticle.$id}`)
+             navigate(`/post/${newArticle.data.$id}`)
             }else{
                 if(newImage){
                     await storageServices.deleteFile(newImage.$id)
@@ -70,7 +75,7 @@ function PublishForm({Article}) {
                
                 
                 
-                const newArticle = await dbService.CreatePost({
+                const newArticle = await createArticle({
                     userId:userData.$id,
                     userName:userData.name,
                     title:data.title,
@@ -78,9 +83,11 @@ function PublishForm({Article}) {
                     thumbnail_Id:imageFile.$id,
                     date:todayDate
                 })
+                
+              
                
                 if(newArticle){
-                    navigate(`/post/${newArticle.$id}`)
+                    navigate(`/post/${newArticle.data.$id}`)
                 }else{
                     
                     
@@ -97,7 +104,7 @@ function PublishForm({Article}) {
         }
     }
     
-    const buttonClass ="border-2 border-gradient-end rounded-2xl text-xl text-white hover:scale-110 hover:text-gradient-end hover:font-bold w-auto";
+ 
     return (
      <PublishComp errors={errors} isSubmitSuccessful={isSubmitSuccessful}
      isSubmitting={isSubmitting} getValues={getValues} titleRef={titleRef}

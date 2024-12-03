@@ -7,7 +7,7 @@ function Profile() {
 
     return (
         <div className="flex flex-col h-screen">
-            {/* NavBar at the top */}
+           
             <NavBar />
 
             
@@ -19,7 +19,7 @@ function Profile() {
                 
               
                 <div className="mt-10">
-                    {/* Add Blog or any other content here */}
+                    
                 </div>
             </div>
 

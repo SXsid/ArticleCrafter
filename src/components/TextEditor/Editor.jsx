@@ -2,13 +2,13 @@ import { Editor as TinyEditor } from '@tinymce/tinymce-react';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 
-export default function MyEditor({ control, defaultValues="hi there" }) {
+export default function MyEditor({ control }) {
   return (
     <div className="">
       <Controller
         name="content"
         control={control}
-        defaultValue={defaultValues}
+        defaultValue={""}
         rules={{ required: 'Content cannot be empty' }}
         render={({ field: { onChange, value }, fieldState: { error } }) => (
           <>

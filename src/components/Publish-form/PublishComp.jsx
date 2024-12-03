@@ -2,7 +2,7 @@ import React from 'react'
 import {motion} from "framer-motion"
 import {CustomInput,Button,MyEditor} from "../index"
 
-function PublishComp({errors,isSubmitting,isSubmitSuccessful,ArticleSubmit,handleSubmit,register,imageRef,titleRef,getValues,Article,control}) {
+function PublishComp({errors,isSubmitting,isSubmitSuccessful,ArticleSubmit,handleSubmit,register,imageRef,titleRef,Article,control}) {
   return (
     <div>
       <motion.div 
@@ -127,7 +127,7 @@ function PublishComp({errors,isSubmitting,isSubmitSuccessful,ArticleSubmit,handl
                     >
                       <MyEditor
                         control={control}
-                        defaultValues="hi there "
+                       
                       />
                       {errors.content && (
                         <motion.p

@@ -6,6 +6,7 @@ import {  useScroll } from "framer-motion"
 import { useSelector } from 'react-redux'
 import PostComp from '../components/PostComp.jsx/PostComp'
 import storageServices from '../Appwrite/StorageServices'
+import { useDetleArticleMutation } from '../Features/articleSlice'
 
 function Post() {
     const [article, setArticle] = useState(null)
@@ -13,6 +14,7 @@ function Post() {
     const { id } = useParams()
     const { scrollYProgress } = useScroll()
     const userData = useSelector(state=>state.auth.UserId)
+    const [deleteFile]=useDetleArticleMutation()
     
     
     
@@ -43,7 +45,7 @@ function Post() {
     
     
     async function deletetHandler(){
-        await dbService.DeletePost(id)
+        await deleteFile(id)
         await storageServices.deleteFile(article.thumbnail_Id)
         navigate("/home")
     }
