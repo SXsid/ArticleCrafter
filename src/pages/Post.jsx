@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import PostComp from '../components/PostComp.jsx/PostComp'
 import storageServices from '../Appwrite/StorageServices'
 import { useDetleArticleMutation } from '../Features/articleSlice'
+import { DotLoader } from '../components'
 
 function Post() {
     const [article, setArticle] = useState(null)
@@ -15,6 +16,7 @@ function Post() {
     const { scrollYProgress } = useScroll()
     const userData = useSelector(state=>state.auth.UserId)
     const [deleteFile]=useDetleArticleMutation()
+    const [loading,setLoading]=useState(false)
     
     
     
@@ -30,15 +32,19 @@ function Post() {
 
     useEffect(() => {
         const dataFetch = async () => {
+            setLoading(true)
+           try{
             const post = await dbService.GetPost(id)
             if (post) {
                 setArticle(post)
-                // console.log(post);
-                
-                
             } else {
-                navigate("/")
+                throw new Error
             }
+           }catch(e){
+                navigate("/home")
+           }finally{
+            setLoading(false)
+           }
         }
         dataFetch()
     }, [id, navigate])
@@ -52,8 +58,11 @@ function Post() {
     const isAuthor = article && userData.$id===article.userId? true:false
    const btnClass= " border-gradient-start  border rounded-xl text-xl font-inter font-bold w-auto bg-card-background-color w-24 px-4 h-12"
     return (
-        <PostComp article={article} isAuthor={isAuthor} deletetHandler={deletetHandler}
-        calculateReadingTime={calculateReadingTime}btnClass={btnClass} scrollYProgress={scrollYProgress} id={id}/>
+       <>
+        {loading && <DotLoader/>}
+        {!loading &&  <PostComp article={article} isAuthor={isAuthor} deletetHandler={deletetHandler}
+        calculateReadingTime={calculateReadingTime}btnClass={btnClass} scrollYProgress={scrollYProgress} id={id}/>}
+       </>
     )
 }
 

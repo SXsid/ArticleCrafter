@@ -37,7 +37,7 @@ function Login() {
                 
                 if(UserData){
                     dispatch(loggIn({UserId:UserData}))
-                    navigate("/")
+                    navigate("/home")
                 }else{
                   setError("root",{message:"plzz login again"})
                   navigate("/signin")
